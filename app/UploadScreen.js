@@ -1,9 +1,8 @@
-"use client"
+//"use client"
 
 import React, {useState} from "react"
 import Axios from 'axios'
 import { Image } from "cloudinary-react"
-
 export default function UploadScreen({imageUrl, setImageUrl, setBefore, setLoading, setAfter}) {
   const uploadImage = (files) => {
     setBefore(false)
@@ -42,30 +41,27 @@ export default function UploadScreen({imageUrl, setImageUrl, setBefore, setLoadi
     e.preventDefault();
   }
     return(
-      // might not work cuz it starts at main
-      <div className = "flex flex-col items-center bg-red-100 p-6">
-      <h1 className = "font-bold font-poppins text-2xl">Upload your image </h1>
-      <h3>File should be Jpeg, Png...</h3>
+      <div className = "flex flex-col items-center bg-zinc-50 p-6 rounded-lg shadow-lg ">
+      <h1 className = "font-semibold font-poppins text-stone-900 text-2xl my-4">Upload your image </h1>
+      <h3 className = "font-poppins text-stone-500 text-1xl my-4">File should be Jpeg, Png...</h3>
 
-      <div className = "border-2 border-blue py-6"
+      <div className = "flex flex-col bg-gray-100 outline-dashed outline-2 outline-offset-2 outline-blue-400 rounded-lg mx-6 my-4 px-24 py-16 items-center gap-y-8"
         id="drop_zone"
         onDrop= {(event) => {dropHandler(event)}}
         onDragOver={(event) => {dragOverHandler(event)}}>
-        <p>Drag & Drop your image here.</p>
+        <img src = "image.svg" className = "h-full " alt = ' '/>
+        <p className = "font-semibold font-poppins text-gray-400">Drag & Drop your image here</p>
       </div>
 
-        <div id = "uploadButton">
+        <div id = "uploadButton" className = "flex flex-col items-center py-4 ">
           <input type = "file" id = "selectedFile" className = "hidden"
             onChange = {(event) => uploadImage(event.target.files)}
           />
+          <h3 className = "font-poppins text-stone-500 text-1xl my-4"> Or </h3>
           <input type = "button" value = "Choose a file" 
-            className = "bg-blue-500 rounded-full p-3 text-white cursor-pointer" onClick = {() => handleButtonClick()}></input>
+            className = "bg-blue-500 rounded-full my-4 p-4 text-white cursor-pointer" onClick = {() => handleButtonClick()}></input>
         </div> 
-
-        <div className = "w-80 h-80">
-          <Image cloudName = "dnyt3b1h3" publicId = {imageUrl}/>
-        </div>
-
+        
     </div>
     );
 }
