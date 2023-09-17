@@ -4,6 +4,7 @@ import React, {useState} from "react"
 import Axios from 'axios'
 import { Image } from "cloudinary-react"
 import UploadScreen from "./UploadScreen"
+import LoadingScreen from "./LoadingScreen"
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState('')
@@ -18,7 +19,11 @@ export default function Home() {
 
       {before && <UploadScreen imageUrl = {imageUrl} setImageUrl = {setImageUrl} setBefore={setBefore} setLoading={setLoading} setAfter ={setAfter}/>}
       
-      {loading && <>NOW LOADING</>}
+      {loading && <LoadingScreen />}
+
+      <div className = "w-80 h-80">
+          <Image cloudName = "dnyt3b1h3" publicId = {imageUrl}/>
+        </div>
 
     </main>
       

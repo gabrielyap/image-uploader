@@ -1,4 +1,4 @@
-"use client"
+//"use client"
 
 import React, {useState} from "react"
 import Axios from 'axios'
@@ -62,9 +62,9 @@ export default function UploadScreen({imageUrl, setImageUrl, setBefore, setLoadi
             className = "bg-blue-500 rounded-full p-3 text-white cursor-pointer" onClick = {() => handleButtonClick()}></input>
         </div> 
 
-        <div className = "w-80 h-80">
+        {/* <div className = "w-80 h-80">
           <Image cloudName = "dnyt3b1h3" publicId = {imageUrl}/>
-        </div>
+        </div> */}
 
     </div>
     );
