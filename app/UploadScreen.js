@@ -41,7 +41,6 @@ export default function UploadScreen({imageUrl, setImageUrl, setBefore, setLoadi
     e.preventDefault();
   }
     return(
-      // might not work cuz it starts at main
       <div className = "flex flex-col items-center bg-zinc-50 p-6 rounded-lg shadow-lg ">
       <h1 className = "font-semibold font-poppins text-stone-900 text-2xl my-4">Upload your image </h1>
       <h3 className = "font-poppins text-stone-500 text-1xl my-4">File should be Jpeg, Png...</h3>
