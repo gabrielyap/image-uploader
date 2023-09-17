@@ -5,6 +5,7 @@ import Axios from 'axios'
 import { Image } from "cloudinary-react"
 import UploadScreen from "./UploadScreen"
 import LoadingScreen from "./LoadingScreen"
+import FinalScreen from "./FinalScreen"
 
 export default function Home() {
   const [imageUrl, setImageUrl] = useState('')
@@ -15,15 +16,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col 
     items-center justify-center p-24
-    bg-gray-100">
+    bg-gray-200">
 
       {before && <UploadScreen imageUrl = {imageUrl} setImageUrl = {setImageUrl} setBefore={setBefore} setLoading={setLoading} setAfter ={setAfter}/>}
       
       {loading && <LoadingScreen />}
 
-      <div className = "w-80 h-80">
-          <Image cloudName = "dnyt3b1h3" publicId = {imageUrl}/>
-        </div>
+      {after && <FinalScreen imageUrl = {imageUrl}/>}
 
     </main>
       
